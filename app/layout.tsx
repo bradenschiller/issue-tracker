@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className="flex row-auto" lang="en">
-      <body className={clsx(inter.className, "flex flex-row")}>
+      <body className={clsx(inter.className, "flex flex-row bg-gray-900")}>
         <Navbar />
         {children}
       </body>
