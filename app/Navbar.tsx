@@ -5,6 +5,9 @@ import { usePathname } from "next/navigation";
 import * as React from "react";
 import { FaBug } from "react-icons/fa6";
 import { MdSpaceDashboard } from "react-icons/md";
+import { buttonVariants } from "@/components/ui/button";
+import clsx from "clsx";
+import link from "next/link";
 
 const links = [
   { href: "/", label: "Dashboard", icon: MdSpaceDashboard },
@@ -21,14 +24,14 @@ export default function Navbar() {
   const currentPathName = usePathname();
 
   return (
-    <nav className="bg-gray-800 h-screen w-48">
+    <nav className="w-48 bg-foreground h-screen">
       <ul className="flex flex-col space-y-2 m-2">
         {links.map(({ href, label, icon: Icon }: LinkProps) => (
           <li
             key={href}
-            className={`p-2 flex space-x-1 items-center ${
-              currentPathName === href ? "bg-gray-600 rounded-lg" : null
-            } hover:bg-gray-600 rounded-lg cursor-pointer transition-colors`}
+            className={`p-2 flex space-x-1 items-center text-white ${
+              currentPathName === href ? "bg-primary rounded-sm" : null
+            } hover:bg-primary/80 rounded-sm cursor-pointer transition-colors`}
           >
             <Icon />
             <Link href={href}>{label}</Link>

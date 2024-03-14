@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Navbar";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,10 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="flex row-auto" lang="en">
-      <body className={clsx(inter.className, "flex flex-row bg-gray-900")}>
+    <html lang="en">
+      <body className={cn(inter.className, "flex")}>
         <Navbar />
-        {children}
+        <div className="w-3/4">{children}</div>
       </body>
     </html>
   );
