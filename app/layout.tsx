@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-color-mode="light">
       <body className={cn(inter.className, "flex")}>
         <Navbar />
         <div className="w-3/4">{children}</div>

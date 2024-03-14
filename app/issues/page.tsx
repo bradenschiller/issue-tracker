@@ -1,8 +1,9 @@
-import * as React from "react";
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import MarkdownEditor from "@uiw/react-markdown-editor";
 
 export interface IssuesPageProps {}
 
@@ -15,7 +16,9 @@ export default function IssuesPage(props: IssuesPageProps) {
       </div>
       <div>
         <Label htmlFor="description">Description</Label>
-        <Textarea placeholder="Description" />
+        <div className=".wmde-markdown-var">
+          <MarkdownEditor placeholder="Description" height="300px" />
+        </div>
       </div>
       <Button>Create New Issue</Button>
     </div>
