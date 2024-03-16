@@ -5,9 +5,6 @@ import { usePathname } from "next/navigation";
 import * as React from "react";
 import { FaBug } from "react-icons/fa6";
 import { MdSpaceDashboard } from "react-icons/md";
-import { buttonVariants } from "@/components/ui/button";
-import clsx from "clsx";
-import link from "next/link";
 
 const links = [
   { href: "/", label: "Dashboard", icon: MdSpaceDashboard },

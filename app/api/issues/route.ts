@@ -1,13 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
-import { z } from "zod";
-import { issue } from "../../../lib/schema";
-
-const createIssueSchema = z.object({
-  title: z.string().min(1).max(255),
-  description: z.string().min(1),
-});
+import { issue, createIssueSchema } from "../../../lib/schema";
 
 const queryClient = postgres(process.env.DATABASE_URL!);
 const db = drizzle(queryClient);
@@ -17,7 +11,6 @@ export async function POST(request: NextRequest) {
   const validation = createIssueSchema.safeParse(body);
 
   if (!validation.success) {
-    console.log("running error");
     return NextResponse.json(validation.error.errors, { status: 400 });
   }
 

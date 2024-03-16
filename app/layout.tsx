@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Navbar";
 import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={cn(inter.className, "flex")}>
         <Navbar />
         <div className="w-3/4">{children}</div>
+        <Toaster />
       </body>
     </html>
   );
