@@ -6,6 +6,13 @@ export const createIssueSchema = z.object({
   description: z.string().min(1, "Description is required."),
 });
 
+const issueSchema = createIssueSchema.extend({
+  id: z.number(),
+  status: z.enum(["OPEN", "IN_PROGRESS", "CLOSED"]),
+  createdAt: z.date(),
+  updatedAt: z.date().optional(),
+});
+
 export const issue = pgTable("issue", {
   id: serial("id").primaryKey(),
   title: text("title"),
@@ -16,3 +23,5 @@ export const issue = pgTable("issue", {
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at"),
 });
+
+export type Issue = z.infer<typeof issueSchema>;

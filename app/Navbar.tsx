@@ -27,8 +27,8 @@ export default function Navbar() {
           <li
             key={href}
             className={`p-2 flex space-x-1 items-center text-white ${
-              currentPathName === href ? "bg-primary rounded-sm" : null
-            } hover:bg-primary/80 rounded-sm cursor-pointer transition-colors`}
+              currentPathName === href ? "bg-primary/95 rounded-sm" : null
+            } hover:bg-primary rounded-sm cursor-pointer transition-colors`}
           >
             <Icon />
             <Link href={href}>{label}</Link>

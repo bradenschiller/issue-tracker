@@ -4,7 +4,9 @@ import postgres from "postgres";
 import { issue, createIssueSchema } from "../../../lib/schema";
 
 const queryClient = postgres(process.env.DATABASE_URL!);
-const db = drizzle(queryClient);
+export const db = drizzle(queryClient, {
+  schema: { issue, createIssueSchema },
+});
 
 export async function POST(request: NextRequest) {
   const body = await request.json();

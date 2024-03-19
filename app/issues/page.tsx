@@ -27,7 +27,6 @@ export default function IssuesPage() {
     <form
       onSubmit={handleSubmit(async (issue) => {
         try {
-          console.log("issue: ", issue);
           toast({
             variant: "default",
             title: "Issue created",
